@@ -1,0 +1,78 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>-->
+<!--    <link rel="stylesheet" href="../static/css/login.css">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">-->
+<!--    <title>모두의여행</title>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<div class="logo">-->
+<!--    <img src="../static/images/logo2.png">-->
+<!--</div>-->
+<!--<div class="page-container">-->
+<!--    <div class="login-form-container shadow">-->
+<!--        <div class="login-form-right-side">-->
+<!--            <div class="top-logo-wrap">-->
+
+<!--            </div>-->
+<!--            <h1>PASSPORT</h1>-->
+<!--            <p>What is traveling? Changing your place? By no means! Traveling is changing your opinions and-->
+<!--                prejudices.</p>-->
+<!--        </div>-->
+<!--        <div class="login-form-left-side">-->
+<!--            <div class="login-top-wrap">-->
+<!--                &lt;!&ndash;                    <span>Don't have an account?</span>&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <button class="create-account-btn shadow-light">Create Profile</button>&ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="login-input-container">-->
+<!--                <div class="login-input-wrap input-name">-->
+<!--                    <i class="fa fa-user"></i>-->
+<!--                    <input id="userid" placeholder="Name" type="text">-->
+<!--                </div>-->
+<!--                <div class="login-input-wrap input-id">-->
+<!--                    <i class="far fa-envelope"></i>-->
+<!--                    <input id='useremail' placeholder="Email" type="text">-->
+<!--                </div>-->
+<!--                <div class="login-input-wrap input-password">-->
+<!--                    <i class="fas fa-key"></i>-->
+<!--                    <input id='userpw' placeholder="Password" type="password">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="login-btn-wrap">-->
+<!--                <button class="login-btn" onclick="register()">Signup</button>-->
+<!--                &lt;!&ndash;                    <a href="#" >Forgot password?</a>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+
+<!--<script>-->
+<!--    // 간단한 회원가입 함수입니다.-->
+<!--    // 아이디, 비밀번호, 닉네임을 받아 DB에 저장합니다.-->
+<!--    function register() {-->
+<!--        $.ajax({-->
+<!--            type: "POST",-->
+<!--            url: "/api/register",-->
+<!--            data: {-->
+<!--                name_give: $('#userid').val(),-->
+<!--                pw_give: $('#userpw').val(),-->
+<!--                email_give: $('#useremail').val()-->
+<!--            },-->
+<!--            success: function (response) {-->
+<!--                if (response['result'] == 'success') {-->
+<!--                    alert('회원가입이 완료되었습니다.')-->
+<!--                    window.location.href = '/login'-->
+<!--                } else {-->
+<!--                    alert(response['msg'])-->
+<!--                }-->
+<!--            }-->
+<!--        })-->
+<!--    }-->
+
+<!--</script>-->
+<!--</html>-->

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <title>ModuDiary</title>
+    <link rel="icon" href="../static/img/symbol.png" type="image/ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=East+Sea+Dokdo&family=Gugi&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@300;500;600;900&family=Stylish&family=Yeon+Sung&display=swap"
+            rel="stylesheet">
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://use.fortawesome.com/99966411.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- main css -->
+    <!--    <link rel="stylesheet" href="../static/css/main.css">-->
+    <link rel="stylesheet" href="../static/css/mypage.css">
+    <!--    <script src="../static/script.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!--================1.Navbar파트====================-->
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar_logo_box">
+            <a class="navbar-brand logo_h" href="/">
+                <img width="145px" class="img_logo"
+                     src="../static/images/logo2.png"
+                     alt="로고 이미지">
+            </a>
+        </div>
+        <!--            <div class="navbar_search_box">-->
+        <!--                <form class="d-flex">-->
+        <!--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+        <!--                </form>-->
+        <!--            </div>-->
+        <div class="navbar_links_box">
+            <ul class="navbar_links">
+                <li><a href="../templates/main.html"><i class="fa fa-home-fi"></i></a></li>
+                <li><a href="/dm_page"><i class="fa fa-paper-plane" style="width:28px"></i></a></li>
+                <li>
+                    <button id="nav_bar_add_box" class="modal_button" data-toggle="modal"
+                            data-target="#addition_modal_box"><i class="fa fa-plus"></i></button>
+                </li>
+                <!--                    <li><a href=""><i class="fa fa-compass"></i></a></li>-->
+                <!--                    <li><button id="navbar_heart" class="modal_button"><i class="fa fa-heart"></i></button></li>-->
+                <li style="display: flex; align-items: center;">
+                    <button
+                            style="width: 70px; height: 30px; font-size: 15px; cursor: pointer; border: 0;"
+                            onclick="sign_out()">logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!--더하기 버튼 모달(새게시물 만들기)//첫번째-->
+        <div id="first_modal" class="modal_overlay">
+            <div class="modal_window">
+                <div class="addition_modal_head">
+                    <div style="width:40px"></div>
+                    <p class="modal-title">새 게시물 만들기</p>
+                    <button id="modal_x_box" class="modal_x_box"><i class="fa fa-x"></i></button>
+                </div>
+                <div id="image_upload" class="addition_modal_body">
+                    사진을 여기에 끌어다 놓으세요
+
+                </div>
+            </div>
+        </div>
+        <!--더하기 버튼 모달(새게시물 만들기)//두번째-->
+        <div id="second_modal" class="modal_overlay">
+            <div class="modal_window2">
+                <div class="addition_modal_head">
+                    새 게시물 만들기
+                    <button id="modal_x_box2" class="modal_x_box"><i class="fa fa-x"></i></button>
+                </div>
+                <div class="addition_modal_body2">
+                    <div class="img_upload_space"></div>
+                    <div class="img_description_space">
+                        <div class="img_description_box">
+                                <textarea id="input_feed_content" style="width:100%;height: 100%"
+                                          placeholder="내용을 써주세요^^"></textarea>
+                        </div>
+                        <div style="justify-content: center;display: flex">
+                            <button id="feed_create_button" onclick="uploading_files()"
+                                    style="background-color: transparent; border-color: #C7B0FFFF; color: #C7B0FFFF;width:100px;border-radius: 5px ">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--하트:tooltip-->
+        <div id="heart_tooltip" class="heart_tooltip">
+        </div>
+    </nav>
+</header>
+<ul class="leftbar">
+    <div class="music-player">
+        <div id="lb-audio" class="player">
+            <audio controls>
+                <source src="../static/images/bgm.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <div class="li">
+        <li><a href="/">홈</a></li>
+        <li><a href="/article">세계일지</a></li>
+        <li><a class="active" href="/mypage">마이일지</a></li>
+    </div>
+</ul>
+
+<!--music player-->
+
+
+<div style="margin-left:25%;padding:1px 16px;height:100%;">
+
+    <div class="wrap">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>나의 여행 일지</h1>
+                <div class="posting-box">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="file">
+                        <label class="custom-file-label" for="file">사진 선택하기</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="사진 제목">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                  placeholder="내용 입력"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="posting()">저장하기</button>
+                </div>
+            </div>
+        </div>
+        <article>
+            <div class="cards" id="cards-box">
+            </div>
+
+        </article>
+
+
+    </div>
+</div>
+
+<script>
+    function sign_out() {
+        $.removeCookie('mytoken', {path: '/'});
+        alert('로그아웃!')
+        window.location.href = "/login"
+    }
+
+    $.ajax({
+        type: "GET",
+        url: "/mypage?sample_give=샘플데이터",
+        data: {},
+        success: function (response) {
+            alert(response['msg'])
+        }
+    })
+
+    $.ajax({
+        type: "POST",
+        url: "/mypage",
+        data: {sample_give: '샘플데이터'},
+        success: function (response) {
+            alert(response['msg'])
+        }
+    })
+
+    function posting() {
+        let title = $('#exampleFormControlInput1').val()
+        let content = $("#exampleFormControlTextarea1").val()
+
+        let file = $('#file')[0].files[0]
+        let form_data = new FormData()
+
+        form_data.append("file_give", file)
+        form_data.append("title_give", title)
+        form_data.append("content_give", content)
+
+        $.ajax({
+            type: "POST",
+            url: "http://172.30.1.46:5000/mypage",
+            data: form_data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                alert(response["msg"])
+                window.location.reload()
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        bsCustomFileInput.init()
+        listing()
+    })
+
+    function listing() {
+        $.ajax({
+            type: "GET",
+            url: "/listing",
+            data: {},
+            success: function (response) {
+                let diarys = response['diarys']
+                for (let i = 0; i < diarys.length; i++) {
+                    let title = diarys[i]['title']
+                    let content = diarys[i]['content']
+                    let file = diarys[i]['file']
+                    let time = diarys[i]['time']
+                    let temp_html = `<div class="card">
+                                            <img src="../static/upload/${file}" class="card-img-top">
+                                            <div class="card-body">
+                                            <h5 class="card-title">${title}</h5>
+                                            <p class="card-text">${content}</p>
+                                            <p class="save-date">${time}</p>
+                                            </div>
+                                            </div>`
+                    $('#cards-box').append(temp_html)
+                }
+            }
+        })
+    }
+
+</script>
+</body>
+
+</html>
